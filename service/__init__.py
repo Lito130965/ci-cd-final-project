@@ -2,12 +2,10 @@
 Service Package
 """
 from flask import Flask
-
-app = Flask(__name__)
-
 from service import routes
 from service.common import log_handlers
 
+app = Flask(__name__)
 log_handlers.init_logging(app, "gunicorn.error")
 
 app.logger.info(70 * "*")
